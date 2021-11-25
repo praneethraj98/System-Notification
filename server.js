@@ -1,7 +1,9 @@
 var SSE=require("sse")
 var http=require("http")
+var faker=require("faker")
 
 var val=0
+var date=new Date()
 var server=http.createServer(function(req,res){
     res.writeHead(200,{
         "Content-type":"text/event-stream",
@@ -9,9 +11,11 @@ var server=http.createServer(function(req,res){
     })
 setInterval(function(){
 val++
-msg="id: msg1\ndata: test"+val+"\n\n"
+time=Date.now()
+randomNotification=faker.lorem.sentence();
+msg="id: msg1\ndata:"+randomNotification+""+val+"\n\n"
 res.write(msg)
-},3000)
+},1000)
 })
 server.listen(8000,"127.0.0.1",function(){
     var sse=new SSE(server)
