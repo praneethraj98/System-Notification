@@ -18,7 +18,7 @@ time=date
 randomNotification=faker.lorem.sentence();
 msg="id: msg1\ndata:"+randomNotification+"-->"+val+"-->"+hours+":"+minutes+":"+seconds+"\n\n"
 res.write(msg)
-},1000)
+},500)
 })
 server.listen(8000,"127.0.0.1",function(){
     var sse=new SSE(server)
