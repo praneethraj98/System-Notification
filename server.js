@@ -2,6 +2,8 @@ var SSE=require("sse")
 var http=require("http")
 var faker=require("faker")
 
+var val=0
+
 
 var server=http.createServer(function(req,res){
     res.writeHead(200,{
@@ -13,7 +15,6 @@ var date=new Date()
 var hours = date.getHours();
 var minutes = date.getMinutes();
 var seconds = date.getSeconds();
-var val=0
 val++
 time=date
 randomNotification=faker.lorem.sentence();
